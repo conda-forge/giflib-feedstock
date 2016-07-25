@@ -22,7 +22,7 @@ test:
         - giffix -h
         - gifinto -h
         - giftext -h
-        - conda inspect linkages giflib --name _test  # [linux]
+        - conda inspect linkages giflib -n _test  # [linux]
 
 about:
     home: http://giflib.sourceforge.net
