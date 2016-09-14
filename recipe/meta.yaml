@@ -1,4 +1,4 @@
-{% set version = "5.1.2" %}
+{% set version = "5.1.4" %}
 
 package:
     name: giflib
@@ -7,10 +7,10 @@ package:
 source:
     fn: giflib-{{ version }}.tar.gz
     url: http://downloads.sourceforge.net/project/giflib/giflib-{{ version }}.tar.gz
-    md5: 241a5825d00a36055fcc71874d97cf7b
+    md5: 8985c9411fdb2178b89d3348da9a06b0
 
 build:
-    number: 1
+    number: 0
     skip: True  # [win]
 
 test:
@@ -22,7 +22,7 @@ test:
         - giffix -h
         - gifinto -h
         - giftext -h
-        - conda inspect linkages giflib --name _test  # [linux]
+        # - conda inspect linkages giflib --prefix ${CONDA_DEFAULT_ENV}  # [linux]
 
 about:
     home: http://giflib.sourceforge.net
@@ -32,3 +32,4 @@ about:
 extra:
     recipe-maintainers:
         - ocefpaf
+        - 183amir
