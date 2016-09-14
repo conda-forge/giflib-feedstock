@@ -22,7 +22,7 @@ test:
         - giffix -h
         - gifinto -h
         - giftext -h
-        - conda inspect linkages giflib --prefix ${CONDA_DEFAULT_ENV}  # [linux]
+        # - conda inspect linkages giflib --prefix ${CONDA_DEFAULT_ENV}  # [linux]
 
 about:
     home: http://giflib.sourceforge.net
