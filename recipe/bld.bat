@@ -2,7 +2,7 @@ cd %SRC_DIR%
 
 set SLN_FILE=giflib.sln
 set SLN_CFG=Release
-if "%ARCH%"=="32" (set SLN_PLAT=Win32) else (set SLN_PLAT=x64)
+if "%ARCH%"=="32" (set SLN_PLAT=x86) else (set SLN_PLAT=x64)
 set PATH=%PATH%;C:\windows\Microsoft.NET\Framework\v4.0
 
 rem wget http://www.chemformatter.com/build-with-visual-studio-2015/giflib/giflib-5.1.4-vs14.zip
