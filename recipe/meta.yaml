@@ -30,15 +30,22 @@ requirements:
 
 test:
   commands:
-    - gif2rgb -h
-    - gifbuild -h
-    - gifclrmp -h
-    - gifecho -h
-    - giffix -h
-    - gifinto -h
-    - giftext -h
+    - gif2rgb -h    # [unix]
+    - gifbuild -h   # [unix]
+    - gifclrmp -h   # [unix]
+    - gifecho -h    # [unix]
+    - giffix -h     # [unix]
+    - gifinto -h    # [unix]
+    - giftext -h    # [unix]
     - conda inspect linkages -p $PREFIX $PKG_NAME  # [not win]
     - conda inspect objects -p $PREFIX $PKG_NAME  # [osx]
+    - gif2rgb.exe -h    # [win]
+    - gifbuild.exe -h   # [win]
+    - gifclrmp.exe -h   # [win]
+    - gifecho.exe -h    # [win]
+    - giffix.exe -h     # [win]
+    - gifinto.exe -h    # [win]
+    - giftext.exe -h    # [win]
 
 about:
   home: http://giflib.sourceforge.net

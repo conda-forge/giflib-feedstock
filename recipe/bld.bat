@@ -14,5 +14,7 @@ REM Build step
 MSBuild %SLN_FILE% /p:Configuration=Release,Platform=%SLN_PLAT%
 if errorlevel 1 exit 1
 
-copy %SRC_DIR%\%SLN_PLAT%\Release\* %LIBRARY_BIN%\
+copy %SRC_DIR%\vs2015\%SLN_PLAT%\Release\*.dll %LIBRARY_BIN%\
+copy %SRC_DIR%\vs2015\%SLN_PLAT%\Release\*.exe %LIBRARY_BIN%\
+copy %SRC_DIR%\vs2015\%SLN_PLAT%\Release\*.lib %LIBRARY_LIB%\
 REM copy %SRC_DIR%\lib\%SLN_PLAT%\blitz.lib %LIBRARY_LIB%\
