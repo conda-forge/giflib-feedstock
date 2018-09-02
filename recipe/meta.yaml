@@ -10,7 +10,9 @@ source:
 
 build:
   number: 1
-  skip: true  # [win and vc<14]
+  # the sln file from the URL below is gone :-/
+  # http://www.chemformatter.com/build-with-visual-studio-2015/giflib/giflib-5.1.4-vs14.zip
+  skip: true  # [win]
   run_exports:
     # SONAME changes at minor revs.
     #    https://abi-laboratory.pro/tracker/timeline/giflib/
