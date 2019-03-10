@@ -1,4 +1,4 @@
-{% set version = "5.1.4" %}
+{% set version = "5.1.7" %}
 
 package:
   name: giflib
@@ -6,10 +6,10 @@ package:
 
 source:
   url: http://downloads.sourceforge.net/project/giflib/giflib-{{ version }}.tar.gz
-  sha256: 34a7377ba834397db019e8eb122e551a49c98f49df75ec3fcc92b9a794a4f6d1
+  sha256: 94096e4f43fd06071bbb4a6827a9ab4eeff52036adb662f329ffc7c1d198436d
 
 build:
-  number: 1001
+  number: 0
   # the sln file from the URL below is gone :-/
   # http://www.chemformatter.com/build-with-visual-studio-2015/giflib/giflib-5.1.4-vs14.zip
   skip: true  # [win]
