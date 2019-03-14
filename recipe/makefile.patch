@@ -1,0 +1,19 @@
+--- giflib-5.1.7.orig/Makefile	2019-03-10 16:06:28.000000000 -0300
++++ giflib-5.1.7/Makefile	2019-03-14 12:03:08.366794437 -0300
+@@ -16,7 +16,7 @@
+ TAR = tar
+ INSTALL = install
+ 
+-PREFIX = /usr/local
++# PREFIX = /usr/local
+ BINDIR = $(PREFIX)/bin
+ INCDIR = $(PREFIX)/include
+ LIBDIR = $(PREFIX)/lib
+@@ -61,7 +61,6 @@
+ LDLIBS=libgif.a -lm
+ 
+ all: libgif.so libgif.a $(UTILS)
+-	$(MAKE) -C doc
+ 
+ $(UTILS):: libgif.a
+ 
