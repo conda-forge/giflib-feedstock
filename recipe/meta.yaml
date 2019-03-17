@@ -11,12 +11,12 @@ source:
     - makefile.patch
 
 build:
-  number: 0
+  number: 1
   skip: True  # [win]
   run_exports:
-    # SONAME changes at minor revs.
+     # SONAME changes at patch revs.
     #    https://abi-laboratory.pro/tracker/timeline/giflib/
-    - {{ pin_subpackage('giflib', max_pin='x.x') }}
+    - {{ pin_subpackage('giflib', max_pin='x.x.x') }}
 
 requirements:
   build:
