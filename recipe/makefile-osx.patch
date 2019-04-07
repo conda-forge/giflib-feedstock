@@ -1,5 +1,5 @@
 --- giflib-5.1.9.orig/Makefile	2019-03-28 15:57:23.000000000 -0300
-+++ giflib-5.1.9/Makefile	2019-04-07 15:39:08.527493351 -0300
++++ giflib-5.1.9/Makefile	2019-04-07 15:55:38.768642539 -0300
 @@ -14,7 +14,8 @@
  TAR = tar
  INSTALL = install
@@ -32,14 +32,14 @@
  
  libgif.so: $(OBJECTS) $(HEADERS)
 -	$(CC) $(CFLAGS) -shared $(LDFLAGS) -Wl,-soname -Wl,libgif.so.$(LIBMAJOR) -o libgif.so $(OBJECTS)
-+	$(CC) $(CFLAGS) -shared $(LDFLAGS) -Wl,libgif.so.$(LIBMAJOR) -o libgif.so $(OBJECTS)
++	$(CC) $(CFLAGS) -shared $(LDFLAGS) -Wl,libgif${SHLIB_EXT}.$(LIBMAJOR) -o libgif${SHLIB_EXT} $(OBJECTS)
  
  libgif.a: $(OBJECTS) $(HEADERS)
  	$(AR) rcs libgif.a $(OBJECTS)
  
  libutil.so: $(UOBJECTS) $(UHEADERS)
 -	$(CC) $(CFLAGS) -shared $(LDFLAGS) -Wl,-soname -Wl,libutil.so.$(LIBMAJOR) -o libutil.so $(UOBJECTS)
-+	$(CC) $(CFLAGS) -shared $(LDFLAGS) -Wl,libutil.so.$(LIBMAJOR) -o libutil.so $(UOBJECTS)
++	$(CC) $(CFLAGS) -shared $(LDFLAGS) -Wl,libutil${SHLIB_EXT}.$(LIBMAJOR) -o libutil${SHLIB_EXT} $(UOBJECTS)
  
  libutil.a: $(UOBJECTS) $(UHEADERS)
  	$(AR) rcs libutil.a $(UOBJECTS)
