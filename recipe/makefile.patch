@@ -1,16 +1,6 @@
---- giflib-5.1.7.orig/Makefile	2019-03-10 16:06:28.000000000 -0300
-+++ giflib-5.1.7/Makefile	2019-03-14 16:00:18.234622134 -0300
-@@ -6,7 +6,8 @@
- # of code space in the shared library.
- 
- #
--CC    = gcc
-+# don't hardcode CC
-+# CC    = gcc
- OFLAGS = -O0 -g
- #OFLAGS  = -O2 -fwhole-program
- CFLAGS  = -std=gnu99 -fPIC -Wall -Wno-format-truncation $(OFLAGS)
-@@ -16,7 +17,8 @@
+--- giflib-5.1.9.orig/Makefile	2019-03-28 15:57:23.000000000 -0300
++++ giflib-5.1.9/Makefile	2019-04-07 15:04:49.350018953 -0300
+@@ -14,7 +14,8 @@
  TAR = tar
  INSTALL = install
  
@@ -20,23 +10,23 @@
  BINDIR = $(PREFIX)/bin
  INCDIR = $(PREFIX)/include
  LIBDIR = $(PREFIX)/lib
-@@ -24,7 +26,8 @@
+@@ -22,7 +23,8 @@
  
  # No user-serviceable parts below this line
  
--VERSION=$(shell getversion)
+-VERSION:=$(shell ./getversion)
 +# use conda env var for version
 +# VERSION=$(shell getversion)
  LIBMAJOR=7
  LIBMINOR=1
  LIBPOINT=0
-@@ -61,7 +64,8 @@
+@@ -63,7 +65,8 @@
  LDLIBS=libgif.a -lm
  
- all: libgif.so libgif.a $(UTILS)
+ all: libgif.so libgif.a libutil.so libutil.a $(UTILS)
 -	$(MAKE) -C doc
 +	# don't build the docs b/c it requires xmlto
 +	# $(MAKE) -C doc
  
- $(UTILS):: libgif.a
+ $(UTILS):: libgif.a libutil.a
  
