@@ -8,12 +8,11 @@ source:
   url: http://downloads.sourceforge.net/project/giflib/giflib-{{ version }}.tar.gz
   sha256: 36ccab06aa43e5d608cdd74902f89c47fd55c348009798434ba5798967454057
   patches:
-    - makefile-osx.patch  # [osx]
-    - makefile.patch  # [linux]
+    - makefile.patch
 
 build:
   number: 0
-  skip: True  # [win]
+  skip: True  # [win or osx]
   run_exports:
      # SONAME changes at patch revs.
     #    https://abi-laboratory.pro/tracker/timeline/giflib/
