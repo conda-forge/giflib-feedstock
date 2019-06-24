@@ -1,5 +1,5 @@
---- giflib-5.1.9.orig/Makefile	2019-03-28 15:57:23.000000000 -0300
-+++ giflib-5.1.9/Makefile	2019-04-07 15:04:49.350018953 -0300
+--- giflib-5.2.0.orig/Makefile	2019-06-24 04:43:41.000000000 -0300
++++ giflib-5.2.0/Makefile	2019-06-24 10:36:24.249660419 -0300
 @@ -14,7 +14,8 @@
  TAR = tar
  INSTALL = install
@@ -17,10 +17,10 @@
 -VERSION:=$(shell ./getversion)
 +# use conda env var for version
 +# VERSION=$(shell getversion)
- LIBMAJOR=7
- LIBMINOR=1
- LIBPOINT=0
-@@ -63,7 +65,8 @@
+ 
+ SOURCES = dgif_lib.c egif_lib.c gifalloc.c gif_err.c gif_font.c \
+ 	gif_hash.c openbsd-reallocarray.c
+@@ -58,7 +60,8 @@
  LDLIBS=libgif.a -lm
  
  all: libgif.so libgif.a libutil.so libutil.a $(UTILS)
