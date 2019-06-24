@@ -1,4 +1,4 @@
-{% set version = "5.1.9" %}
+{% set version = "5.2.1" %}
 
 package:
   name: giflib
@@ -6,7 +6,7 @@ package:
 
 source:
   url: http://downloads.sourceforge.net/project/giflib/giflib-{{ version }}.tar.gz
-  sha256: 36ccab06aa43e5d608cdd74902f89c47fd55c348009798434ba5798967454057
+  sha256: 31da5562f44c5f15d63340a09a4fd62b48c45620cd302f77a6d9acf0077879bd
   patches:
     - makefile.patch
 
