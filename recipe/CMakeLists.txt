@@ -1,3 +1,6 @@
+# Taken from https://sourceforge.net/p/giflib/feature-requests/6/
+# Original Author: Sandro Mani
+
 cmake_minimum_required(VERSION 2.6.0)
 
 project(giflib C)
