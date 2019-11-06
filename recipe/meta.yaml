@@ -27,11 +27,10 @@ test:
   commands:
     - gif2rgb -h  # [not win]
     - gifbuild -h  # [not win]
-    - gifclrmp -h  # [not win]
-    - gifecho -h  # [not win]
     - giffix -h  # [not win]
-    - gifinto -h  # [not win]
     - giftext -h  # [not win]
+    - giftool -h  # [not win]
+    - gifclrmp -h  # [not win]
     - gif2rgb.exe -h  # [win]
     - gifbuild.exe -h  # [win]
     - gifclrmp.exe -h  # [win]
