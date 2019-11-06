@@ -16,7 +16,7 @@ build:
   run_exports:
      # SONAME changes at patch revs.
     #    https://abi-laboratory.pro/tracker/timeline/giflib/
-    - {{ pin_subpackage('giflib', max_pin='x.x.x') }}
+    - {{ pin_subpackage('giflib', max_pin='x.x') }}
 
 requirements:
   build:
