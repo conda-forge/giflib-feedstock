@@ -1,7 +1,8 @@
 #!/bin/bash
 
+mkdir build
+cd build
+cmake -DCMAKE_INSTALL_PREFIX=$PREFIX ..
 make -j$CPU_COUNT
-if [[ $(uname) == Linux ]]; then
-    make check
-fi
+make -C ../tests UTILS=$PWD
 make install
