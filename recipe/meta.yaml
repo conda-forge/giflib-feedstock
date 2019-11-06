@@ -28,7 +28,6 @@ test:
     - gifbuild -h  # [not win]
     - giffix -h  # [not win]
     - giftext -h  # [not win]
-    - giftool -h  # [not win]
     - gifclrmp -h  # [not win]
     - gif2rgb.exe -h  # [win]
     - gifbuild.exe -h  # [win]
