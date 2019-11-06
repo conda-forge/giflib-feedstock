@@ -1,5 +1,6 @@
 #!/bin/bash
 
+cp $RECIPE_DIR/CMakeLists.txt .
 mkdir build
 cd build
 cmake -DCMAKE_INSTALL_PREFIX=$PREFIX ..
