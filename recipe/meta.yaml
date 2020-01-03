@@ -12,9 +12,9 @@ build:
   number: 0
   skip: True  # [win]
   run_exports:
-     # SONAME changes at patch revs.
+    # SONAME changes at minor revs.
     #    https://abi-laboratory.pro/tracker/timeline/giflib/
-    - {{ pin_subpackage('giflib', max_pin='x.x.x') }}
+    - {{ pin_subpackage('giflib', max_pin='x.x') }}
 
 requirements:
   build:
@@ -48,3 +48,4 @@ extra:
     - ocefpaf
     - 183amir
     - msarahan
+    - isuruf
