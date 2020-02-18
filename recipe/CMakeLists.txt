@@ -5,6 +5,7 @@ cmake_minimum_required(VERSION 2.6.0)
 
 project(giflib C)
 
+SET(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
 SET(BUILD_STATIC_LIBS OFF CACHE BOOL "Whether to also build static libs")
 
 execute_process(COMMAND ./getversion
@@ -70,10 +71,19 @@ file(GLOB giflib_MAN doc/*.1)
 ### Build library / tools
 
 add_library(gif SHARED ${giflib_SRC})
-target_link_libraries(gif m)
+
+if (NOT WIN32)
+    target_link_libraries(gif m)
+endif()
+
 set_target_properties(gif PROPERTIES VERSION ${LIBVER} SOVERSION ${LIBMAJOR})
 if(WIN32)
-    set_target_properties(gif PROPERTIES RUNTIME_OUTPUT_NAME "gif-${LIBMAJOR}")
+    set_target_properties(gif
+        PROPERTIES
+        RUNTIME_OUTPUT_NAME "gif-${LIBMAJOR}"
+        COMPILE_DEFINITIONS "GIFLIB_EXPORTS"
+    )
+    add_definitions(-D_CRT_SECURE_NO_WARNINGS)
 endif(WIN32)
 
 if(${BUILD_STATIC_LIBS})
@@ -84,12 +94,6 @@ if(${BUILD_STATIC_LIBS})
         set_target_properties(gif_static PROPERTIES OUTPUT_NAME gif)
     endif()
 endif(${BUILD_STATIC_LIBS})
-
-
-foreach(UTILITY ${giflib_UTILS})
-    add_executable(${UTILITY} ${UTILITY}.c)
-    target_link_libraries(${UTILITY} gif)
-endforeach()
 
 ### Installation
 
@@ -103,13 +107,17 @@ if(${BUILD_STATIC_LIBS})
     install(TARGETS gif_static ARCHIVE DESTINATION lib${LIB_SUFFIX})
 endif(${BUILD_STATIC_LIBS})
 
+foreach(UTILITY ${giflib_UTILS})
+    add_executable(${UTILITY} ${UTILITY}.c)
+    target_link_libraries(${UTILITY} gif)
+endforeach()
+
 foreach(UTILITY ${giflib_INSTALLABLE})
     install(TARGETS ${UTILITY} DESTINATION bin)
 endforeach()
 
 install(FILES gif_lib.h DESTINATION include)
 install(FILES ${giflib_MAN} DESTINATION ${CMAKE_INSTALL_PREFIX}/share/man/man1)
-
 
 ### Distribution tarball
 set(giflib_DIST
