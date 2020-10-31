@@ -1,8 +1,4 @@
-appveyor:
-  secure: {BINSTAR_TOKEN: tumuXLL8PU75WMnRDemRy02ruEq2RpNxeK3dz0MjFssnosPm2v4EFjfNB4PTotA1}
-compiler_stack: comp7
-max_py_ver: '37'
-max_r_ver: '35'
-provider: {linux_aarch64: azure, linux_ppc64le: azure}
-travis:
-  secure: {BINSTAR_TOKEN: ZlqZ2ZgOcYK//vbC5oXJ5sSRsYffJueHZPOfAXYftbIIBjf/FRV1BaHd64nEPIAFRdP3cqOq2ttQMbEhecDmI4CNfWJw7qeWd5CA/VuXruXNnGiIHoLXZlYA2ZWcpjn3pfi05X7LA4SmY1qCp8pFKsZaB2w1zPHtntlv6lntufVtOCX/cn56znlD2UJLfOcncjko9GiIyeeqZ1+rtvHky+uDFFvWThioes/l568WNIFonaxnCGIMTIlR9JESgSpa9j33SzOUceGp/EZHxpnMfyVCYQbSoK4b3eh6fUV+iHS7iHWKLbPtnIZTVV2fEhMiZWtuu3fG/K+EEhUHwCkavKfUYuBDoPNHaQKLDQUnDUuwOMGLEn+rIRWHu4tbtS+sEpvR0fEbQq8aOGGvlXl0QxJnqBdg+EsZOChoH6u2EHv0sO/BpPQcNThHMa0OEJWk+Ve2ENQNgpBnDOOIF8LiWe3X6Hihl7da1DFtvldqFo4G1bgaD2YKSiPietUv7DlYy6qZvS6LjdV5bQaQCnTjUi2p3vSma4DgVCmN5/IJkwSStiRAV9j30WvdUu/Wslf9uAtNWPe6l24YrEiOBRGj2GL3TCEeTHe6pxmhJl7ZzJOGhj4lcFxcBCcogr3Zu56B1qSnvAxJoAP0nTP97tk7+rvFOfkvlIas5TjN4GUBFeg=}
+build_platform: {osx_arm64: osx_64}
+conda_forge_output_validation: true
+provider: {linux_aarch64: default, linux_ppc64le: default}
+test_on_native_only: true

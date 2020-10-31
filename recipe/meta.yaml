@@ -5,16 +5,17 @@ package:
   version: {{ version }}
 
 source:
-  url: http://downloads.sourceforge.net/project/giflib/giflib-{{ version }}.tar.gz
-  sha256: 31da5562f44c5f15d63340a09a4fd62b48c45620cd302f77a6d9acf0077879bd
-  patches:
-    - makefile.patch
-
+  - url: http://downloads.sourceforge.net/project/giflib/giflib-{{ version }}.tar.gz
+    sha256: 31da5562f44c5f15d63340a09a4fd62b48c45620cd302f77a6d9acf0077879bd
+    patches:
+      - fix_win.patch  # [win]
+  # add a getopt polyfill
+  - path: getopt.h  # [win]
 build:
-  number: 0
-  skip: True  # [win or osx]
+  number: 2
+  skip: true  # [win and vc<14]
   run_exports:
-     # SONAME changes at minor revs.
+    # SONAME changes at minor revs.
     #    https://abi-laboratory.pro/tracker/timeline/giflib/
     - {{ pin_subpackage('giflib', max_pin='x.x') }}
 
@@ -22,26 +23,23 @@ requirements:
   build:
     - {{ compiler('c') }}
     - make  # [not win]
+    - git  # [win]
+    - cmake
 
 test:
   commands:
-    - gif2rgb -h  # [not win]
-    - gifbuild -h  # [not win]
-    - giffix -h  # [not win]
-    - giftext -h  # [not win]
-    - gifclrmp -h  # [not win]
-    - gif2rgb.exe -h  # [win]
-    - gifbuild.exe -h  # [win]
-    - gifclrmp.exe -h  # [win]
-    - gifecho.exe -h  # [win]
-    - giffix.exe -h  # [win]
-    - gifinto.exe -h  # [win]
-    - giftext.exe -h  # [win]
+    - gif2rgb -h
+    - gifbuild -h
+    - giffix -h
+    - giftext -h
+    - gifclrmp -h
 
 about:
   home: http://giflib.sourceforge.net
   license: MIT
-  license_file: COPYING
+  license_file:
+    - COPYING
+    - getopt_LICENSE.txt  # [win]
   summary: Library for reading and writing gif images
 
 extra:
@@ -49,3 +47,5 @@ extra:
     - ocefpaf
     - 183amir
     - msarahan
+    - isuruf
+    - wolfv
