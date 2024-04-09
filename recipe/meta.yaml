@@ -10,7 +10,6 @@ source:
     patches:
       - fix_win.patch  # [win]
       - stdbool_h.patch  # [win]
-      - CVE-2022-28506.patch
   # add a getopt polyfill
   - path: getopt.h  # [win]
 
